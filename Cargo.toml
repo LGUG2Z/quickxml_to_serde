@@ -1,19 +1,23 @@
 [package]
 name = "quickxml_to_serde"
-version = "0.6.0"
-authors = ["Alec Troemel <alec@mirusresearch.com>", "Max Voskob <max@onebro.me>"]
+version = "0.6.1"
+authors = [
+    "Alec Troemel <alec@mirusresearch.com>",
+    "Max Voskob <max@onebro.me>",
+]
 description = "Convert between XML JSON using quickxml and serde"
 repository = "https://github.com/AlecTroemel/quickxml_to_serde"
 keywords = ["json", "xml", "xml2json", "xml_to_json"]
 license = "MIT"
 
 [dependencies]
-serde = "1.0"
-serde_json = "1.0"
-serde_derive = "1.0"
+serde = "1"
+serde_json = { package = "serde_json_lenient", version = "0.2" }
+serde_derive = "1"
+# everything after this version breaks with ioreg
 minidom = "0.12"
-regex = "1.8.3"
+regex = "1"
 
 [features]
-json_types = [] # Enable to enforce fixed JSON data types for certain XML nodes
+json_types = []             # Enable to enforce fixed JSON data types for certain XML nodes
 regex_path = ["json_types"] # Enable Regex matching for JSON types
